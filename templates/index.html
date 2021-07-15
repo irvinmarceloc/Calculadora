@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Calculadora</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="static/bluebliss.css" />
+</head>
+<body>
+<div id="mainContentArea">
+	<div id="contentBox">
+        <div id="title">Calculadora</div>
+        
+        <div id="linkGroup">
+            <div class="link"><a href="/">Home</a></div>
+            <div class="link"><a href="/">About</a></div>
+            <div class="link"><a href="/">Portfolio</a></div>
+            <div class="link"><a href="/">Contact</a></div>
+        </div>
+        
+        <div id="blueBox"> 
+          <div id="header"></div>
+          <div class="contentTitle">Calculadora</div>
+            <div class="pageContent">
+              
+              {% if modo=='modo1' %} 
+
+              <form action="/calcula" method="POST">
+                <p style="line-height:150%">
+
+                <div >
+                    <label>Numero 1</label>
+                    <input type="text" name="num1">
+                </div>
+
+                <div >
+                  <label>Numero 2</label>
+                  <input type="text" name="num2" >
+                </div>
+                </p>
+
+                <select name="operacion">
+                  <option value="suma">Suma</option>
+                  <option value="resta" selected>Resta</option>
+                  <option value="multiplicacion">Multiplicación</option>
+                  <option value="division">División</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    Calcular
+                </button>
+                
+              </form> 
+              {% endif %}
+              
+              {% if modo=='modo2' %}
+                <p style="line-height:150%">
+                {{num1}} {{signo}} {{num2}} = <b> {{resultado}} </b> </p>                
+                <div><a href="/">Volver</a></div>
+              {% endif %}
+            </div>
+            <div id="footer"><a href="http://www.aszx.net">web development</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
+        </div>
+	</div>
+</div>
+</body>
+</html>
